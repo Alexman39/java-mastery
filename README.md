@@ -1,4 +1,4 @@
-# Java Mastery — v0.6
+# Java Mastery — v0.7
 
 A free, English-language, static Java and Computer Science course.
 
@@ -50,3 +50,12 @@ Run `node --check assets/app.js`, `node --check assets/labs.js`, and `node --che
 - `java-capstone/`: complete Java graph-search implementation and dependency-free tests for BFS, DFS, Dijkstra, A*, and edge cases.
 - Java source verified by compiling with OpenJDK 21 and running the tests.
 - Site JavaScript verified with `node --check`; browser visual inspection still recommended.
+
+## v0.7: practice and continuous verification
+
+- `workbook/README.md`: 34 progressively structured independent programming challenges, including acceptance criteria and a capstone extension.
+- `java-capstone/run-tests.sh`: one-command compilation and regression tests, without external libraries.
+- Expanded Java graph-search regression coverage (directedness, cycles, zero weights, unreachable goals, edge updates, and BFS vs weighted shortest path).
+- `.github/workflows/verify.yml`: automatic JavaScript syntax checks and Java capstone tests on pushes and pull requests.
+
+Run `bash java-capstone/run-tests.sh` before merging a branch. The workbook is intentionally ungraded; browser-level tests and comprehensive lesson verification remain outstanding.
