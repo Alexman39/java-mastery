@@ -35,3 +35,11 @@ The chapter order was informed by user-supplied Java course PDFs and exercises. 
 ## Limitations
 
 Progress uses localStorage and is not synchronized. The site is educational and does not provide an online Java runtime. Java versions 17+ are recommended for examples using records and switch expressions.
+
+## v0.5 labs
+
+The course overview now includes interactive conceptual object-reference memory states and a weighted shortest-path stepper comparing Dijkstra and A*. Both run entirely in the browser and require no backend. The diagrams are teaching models, not representations of physical JVM memory addresses.
+
+### Release checks
+
+Run `node --check assets/app.js`, `node --check assets/labs.js`, and `node --check assets/advanced-labs.js` to validate JavaScript syntax. Serve locally with `python3 -m http.server 8000` and verify the three graph/memory labs in a browser. Java source examples and the full site have not yet been exhaustively tested.
