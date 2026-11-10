@@ -78,9 +78,25 @@ const lessons=[
 ],exercise:['Write your own binary search without copying the example. Test an empty array, one element, a missing value, and values at the first and last indices. Record low, mid, and high at each iteration.','For a sorted array {2, 4, 7, 11, 15, 19, 24}, target 19 is at index 5. Check the empty array before accessing elements.'],check:'Why does binary search become unreliable when the array is not sorted?'}
 ];
 lessons.push(...window.EXTRA_LESSONS);
-const future=[['Arrays and Strings','01 · FOUNDATIONS'],['Methods and Scope','01 · FOUNDATIONS'],['Stack, Heap, References','02 · MEMORY'],['Recursion and Call Stack','02 · MEMORY'],['Classes and Objects','03 · OBJECT-ORIENTED JAVA'],['Inheritance and Interfaces','03 · OBJECT-ORIENTED JAVA'],['Exceptions and Files','03 · OBJECT-ORIENTED JAVA'],['Lists, Stacks, Queues','04 · DATA STRUCTURES'],['Hash Tables and Maps','04 · DATA STRUCTURES'],['Trees and Binary Search Trees','04 · DATA STRUCTURES'],['Graphs and Representations','04 · DATA STRUCTURES'],['Big O and Searching','05 · ALGORITHMS'],['Sorting Algorithms','05 · ALGORITHMS'],['BFS and DFS','05 · ALGORITHMS'],['Dijkstra and A*','05 · ALGORITHMS'],['Greedy and Heuristic Search','05 · ALGORITHMS'],['Backtracking and Dynamic Programming','05 · ALGORITHMS'],['Testing, Concurrency, JVM','06 · ADVANCED JAVA']];
+// Normalize overlapping early chapters and reorder the entire curriculum.
+const normalized = s => s.toLowerCase().replace(/[^a-z0-9]/g,'');
+const overlap = new Set(['Arrays and Strings','Methods and Scope','Stack, Heap, References']);
+const core = lessons.filter((l,i)=> !(i>=10 && overlap.has(l.title)));
+const combined = [...core,...window.EXPANDED_LESSONS];
+const desiredOrder = [
+'How Java Runs','Development Environment and Debugging','Variables and Types','Operators, Casting and Numeric Precision','Decisions and Logic','Loops and Execution Tracing',
+'Methods and Scope','Arrays and Strings','Strings, Unicode and StringBuilder','Stack, Heap, and References','Recursion and the Call Stack',
+'Classes, Objects, and Constructors','Encapsulation, Access and Static Members','Inheritance and Interfaces','Polymorphism, Abstract Classes and Composition','Generics and Type Safety',
+'Exceptions and Files','Exceptions and Resource Management','Files, Paths and Data Formats','Lists, Stacks, Queues','Hash Tables and Maps','Collections, Iterators and Comparators','Lambdas, Streams and Optional','Dates, Records, Enums and Regular Expressions',
+'Trees and Binary Search Trees','Heaps, Priority Queues and Union-Find','Graphs and Representations','Algorithm Analysis and Binary Search','Sorting Algorithms','BFS and DFS','Dijkstra and A*','Greedy and Heuristic Search','Backtracking and Dynamic Programming',
+'Testing, Build Tools and Git','Concurrency and Thread Safety','Final Capstone: Search Engine and Route Planner'];
+const byTitle = new Map(combined.map(l=>[l.title,l]));
+if (desiredOrder.some(t=>!byTitle.has(t))) throw Error('Missing curriculum chapter: '+desiredOrder.filter(t=>!byTitle.has(t)));
+lessons.splice(0,lessons.length,...desiredOrder.map(t=>byTitle.get(t)));
+
+const future=[];
 const all=[...lessons.map(x=>[x.title,x.group]),...future.filter(x=>!lessons.some(l=>l.title===x[0]))];
-const key='java-mastery-completed-v1';let done=new Set(JSON.parse(localStorage.getItem(key)||'[]'));
+const key='java-mastery-completed-v2';let done=new Set(JSON.parse(localStorage.getItem(key)||'[]'));
 const nav=document.getElementById('nav'),content=document.getElementById('content');
 function progress(){let n=done.size;document.getElementById('progress-text').textContent=`${Math.round(n/all.length*100)}%`;document.getElementById('progress-bar').style.width=`${n/all.length*100}%`}
 function renderNav(){let out='<a class="navlink" href="#home">◈ &nbsp; Course overview</a>',g='';all.forEach(([title,group],i)=>{if(group!==g){g=group;out+=`<div class="navheading">${g}</div>`}out+=`<a class="navlink ${i>=lessons.length?'lock':''}" href="#lesson-${i}"><span class="num">${String(i+1).padStart(2,'0')}</span>${title}${done.has(i)?' ✓':''}</a>`});nav.innerHTML=out;document.querySelectorAll('.navlink').forEach(a=>a.addEventListener('click',()=>document.querySelector('.sidebar').classList.remove('open')))}
@@ -98,7 +114,8 @@ const runnableExamples = [
   ['Backtracking and Dynamic Programming','DynamicProgramming']
 ];
 function exampleFor(title){
-  const pair=runnableExamples.find(([name])=>name===title);
+  const aliases={"Loops and Execution Tracing":"Loops and Iteration","Stack, Heap, and References":"Stack, Heap, References","Recursion and the Call Stack":"Recursion and Call Stack","Classes, Objects, and Constructors":"Classes and Objects","Algorithm Analysis and Binary Search":"Big O and Searching"};
+  const pair=runnableExamples.find(([name])=>name===(aliases[title]||title));
   if(!pair)return '';
   const file=pair[1];
   return `<section class="panel runnable"><h2>Run a complete Java example</h2><p>This example has its own <code>main</code> method and can be compiled independently. Predict its output before running it.</p><p><a href="examples/src/${file}.java" target="_blank" rel="noopener">View ${file}.java source</a> · <a href="examples/expected/${file}.txt" target="_blank" rel="noopener">Expected output</a></p>${codeBlock(`cd examples/src\njavac ${file}.java\njava ${file}`,'bash')}<p class="note">From the repository root, run <code>bash examples/run-all.sh</code> to verify all executable examples.</p></section>`;

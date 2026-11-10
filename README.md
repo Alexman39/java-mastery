@@ -4,7 +4,7 @@ A free, English-language, static Java and Computer Science course.
 
 ## Current scope
 
-- 22 written lessons (7 from the earlier edition, 15 newly added) across foundations, JVM memory, OOP, collections, data structures, graph algorithms, heuristics and advanced topics.
+- 36 available lessons (existing material reorganized and 15 newly written chapters) across foundations, JVM memory, OOP, collections, data structures, graph algorithms, heuristics and advanced topics.
 - Per-chapter code snippets, independent challenges, hints, comprehension questions and browser-local completion tracking.
 - Interactive loop tracing lab on the course overview.
 - Responsive interface and GitHub Pages deployment workflow.
@@ -84,3 +84,8 @@ See [`practice/README.md`](practice/README.md) for eight Java methods and 16 aut
 - Browser smoke script at `tests/browser-smoke.sh` loads the homepage and a chapter in headless Chromium, checking rendered content.
 - Run `bash tests/browser-smoke.sh` locally if Chromium is installed; It is currently an optional manual check because the browser did not finish in this execution environment.
 - Static GitHub Pages deployment remains available via `.github/workflows/pages.yml`; publication requires a push to your own repository.
+
+
+## v1.2 curriculum expansion
+
+The website now exposes **36 available chapters** (not placeholders), including modern Java, Unicode, generics, concurrency, collections, files, testing, and a final capstone specification. Read `CURRICULUM.md` for the ordered chapter list. This is not an externally accredited course, and browser testing and full editorial QA remain outstanding.
