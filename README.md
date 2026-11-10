@@ -39,4 +39,3 @@ The initial chapter sequence was informed by the user's supplied Java lecture no
 ## Limitations
 
 Progress is stored only in localStorage in the current browser. Java code examples are displayed, not executed in-browser. This is a first release, not a complete textbook yet.
-# java-mastery
