@@ -1,41 +1,37 @@
-# Java Mastery
+# Java Mastery — v0.3
 
-An English-language, first-principles Java and Computer Science learning website.
+A free, English-language, static Java and Computer Science course.
 
-## What's included
+## Current scope
 
-- Responsive, dark-themed learning site with sidebar chapter navigation
-- Four written chapters: Java execution, variables/types, decisions, and loops
-- Worked code examples, end-of-chapter coding challenges, and revealable hints
-- Browser-local chapter completion tracking
-- Curriculum roadmap through data structures, graphs, and heuristic search
-- GitHub Pages deployment workflow
+- 22 written lessons (7 from the earlier edition, 15 newly added) across foundations, JVM memory, OOP, collections, data structures, graph algorithms, heuristics and advanced topics.
+- Per-chapter code snippets, independent challenges, hints, comprehension questions and browser-local completion tracking.
+- Interactive loop tracing lab on the course overview.
+- Responsive interface and GitHub Pages deployment workflow.
+
+**Scope caveat:** This is a broad first-pass curriculum, **not** a fully comprehensive textbook or a guarantee of proficiency. Some snippets are fragments intended to be inserted into a class or method; imports and scaffolding may be required. The Java code is not executed in the browser. A future revision should add deeper proofs, graded test suites, more interactive visualizers, and complete executable examples for every lesson.
 
 ## Run locally
-
-No build system or dependencies required. From this folder:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Visit http://localhost:8000 .
+Open http://localhost:8000. No dependencies or build step required.
 
 ## Publish to GitHub Pages
 
-1. Create a public repository (for example, `java-mastery`).
-2. Upload or push all files in this directory to its `main` branch, including `.github/workflows/pages.yml`.
-3. In repository **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**.
-4. After the deployment workflow completes, open the URL shown in the workflow's deployment summary (typically `https://USERNAME.github.io/java-mastery/`).
+1. Create a public GitHub repository named `java-mastery`.
+2. Push this folder's contents to its `main` branch.
+3. Under **Settings → Pages**, select **GitHub Actions** as the deployment source.
+4. The included `.github/workflows/pages.yml` deploys on pushes to `main`.
 
-## Editorial roadmap
+The URL is typically `https://USERNAME.github.io/java-mastery/`.
 
-The chapter list includes planned material. Planned chapters are clearly marked and are **not** represented as complete. Future versions should expand theory, diagrams, interactive execution tracing, solutions, tests, and algorithm visualizers.
+## Source attribution
 
-## Source materials
-
-The initial chapter sequence was informed by the user's supplied Java lecture notes and introductory presentation. The explanations are original educational writing, with additional clarifications on modern JVM behavior and Java semantics. Do not redistribute the uploaded lecture files without permission.
+The chapter order was informed by user-supplied Java course PDFs and exercises. Explanations are newly written and extend beyond those materials. Original third-party PDFs are not redistributed.
 
 ## Limitations
 
-Progress is stored only in localStorage in the current browser. Java code examples are displayed, not executed in-browser. This is a first release, not a complete textbook yet.
+Progress uses localStorage and is not synchronized. The site is educational and does not provide an online Java runtime. Java versions 17+ are recommended for examples using records and switch expressions.
