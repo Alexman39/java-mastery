@@ -70,3 +70,9 @@ See [`practice/README.md`](practice/README.md) for eight Java methods and 16 aut
 - `practice/validation/` contains an instructor reference fixture and a harness validation script; the learner starter methods remain TODOs.
 - `bash practice/validation/validate-harness.sh` must pass for release: all 16 tests pass with the correct implementation, and a deliberately broken implementation is rejected.
 - Browser smoke testing is included in the release verification process; this is not a full cross-browser accessibility audit.
+
+## v1.0: executable example suite
+
+- `examples/src/` contains 14 complete standalone Java programs covering the runtime basics, branching, loops, arrays, methods, references, encapsulation, collections, recursion, binary search, BFS, dynamic programming and exceptions.
+- `bash examples/run-all.sh` compiles all examples and compares actual output to checked-in expected output. This also runs in GitHub Actions.
+- These are additional runnable examples, not a guarantee that every embedded lesson snippet has been compiled or tested.

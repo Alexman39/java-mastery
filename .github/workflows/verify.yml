@@ -23,3 +23,5 @@ jobs:
         run: bash practice/run-tests.sh
       - name: Validate exercise grader with reference and broken implementation
         run: bash practice/validation/validate-harness.sh
+      - name: Compile and verify standalone Java examples
+        run: bash examples/run-all.sh

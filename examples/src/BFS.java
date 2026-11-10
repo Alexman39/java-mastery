@@ -1,0 +1,2 @@
+// 12_BFS — Java 17+
+import java.util.*; public class BFS { static List<Integer> traverse(List<List<Integer>> graph,int start){boolean[] seen=new boolean[graph.size()];Queue<Integer> queue=new ArrayDeque<>();List<Integer> order=new ArrayList<>();seen[start]=true;queue.add(start);while(!queue.isEmpty()){int v=queue.remove();order.add(v);for(int n:graph.get(v))if(!seen[n]){seen[n]=true;queue.add(n);}}return order;}public static void main(String[] args){System.out.println(traverse(List.of(List.of(1,2),List.of(3),List.of(3),List.of()),0));} }
