@@ -21,3 +21,5 @@ jobs:
         run: bash java-capstone/run-tests.sh
       - name: Student practice harness (TODOs are expected)
         run: bash practice/run-tests.sh
+      - name: Validate exercise grader with reference and broken implementation
+        run: bash practice/validation/validate-harness.sh

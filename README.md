@@ -1,4 +1,4 @@
-# Java Mastery — v0.7
+# Java Mastery — v0.9
 
 A free, English-language, static Java and Computer Science course.
 
@@ -63,3 +63,10 @@ Run `bash java-capstone/run-tests.sh` before merging a branch. The workbook is i
 ## Autograded practice (v0.8)
 
 See [`practice/README.md`](practice/README.md) for eight Java methods and 16 automated checks. The methods deliberately begin as TODOs; the normal test command reports them without failing CI. Use `bash practice/run-tests.sh --require-complete` after implementing every method.
+
+## v0.9: validation and worked examples
+
+- `worked-examples/README.md` adds five detailed traces/invariants across searching, references, graph search, recursion, and dynamic programming.
+- `practice/validation/` contains an instructor reference fixture and a harness validation script; the learner starter methods remain TODOs.
+- `bash practice/validation/validate-harness.sh` must pass for release: all 16 tests pass with the correct implementation, and a deliberately broken implementation is rejected.
+- Browser smoke testing is included in the release verification process; this is not a full cross-browser accessibility audit.
