@@ -1,4 +1,4 @@
-# Java Mastery — v0.3
+# Java Mastery — v0.6
 
 A free, English-language, static Java and Computer Science course.
 
@@ -43,3 +43,10 @@ The course overview now includes interactive conceptual object-reference memory 
 ### Release checks
 
 Run `node --check assets/app.js`, `node --check assets/labs.js`, and `node --check assets/advanced-labs.js` to validate JavaScript syntax. Serve locally with `python3 -m http.server 8000` and verify the three graph/memory labs in a browser. Java source examples and the full site have not yet been exhaustively tested.
+
+## v0.6 additions
+
+- Interactive factorial recursion call-stack tracer (n=0..8).
+- `java-capstone/`: complete Java graph-search implementation and dependency-free tests for BFS, DFS, Dijkstra, A*, and edge cases.
+- Java source verified by compiling with OpenJDK 21 and running the tests.
+- Site JavaScript verified with `node --check`; browser visual inspection still recommended.
