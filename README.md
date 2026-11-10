@@ -59,3 +59,7 @@ Run `node --check assets/app.js`, `node --check assets/labs.js`, and `node --che
 - `.github/workflows/verify.yml`: automatic JavaScript syntax checks and Java capstone tests on pushes and pull requests.
 
 Run `bash java-capstone/run-tests.sh` before merging a branch. The workbook is intentionally ungraded; browser-level tests and comprehensive lesson verification remain outstanding.
+
+## Autograded practice (v0.8)
+
+See [`practice/README.md`](practice/README.md) for eight Java methods and 16 automated checks. The methods deliberately begin as TODOs; the normal test command reports them without failing CI. Use `bash practice/run-tests.sh --require-complete` after implementing every method.
