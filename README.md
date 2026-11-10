@@ -1,4 +1,4 @@
-# Java Mastery — v0.9
+# Java Mastery — v1.1
 
 A free, English-language, static Java and Computer Science course.
 
@@ -76,3 +76,11 @@ See [`practice/README.md`](practice/README.md) for eight Java methods and 16 aut
 - `examples/src/` contains 14 complete standalone Java programs covering the runtime basics, branching, loops, arrays, methods, references, encapsulation, collections, recursion, binary search, BFS, dynamic programming and exceptions.
 - `bash examples/run-all.sh` compiles all examples and compares actual output to checked-in expected output. This also runs in GitHub Actions.
 - These are additional runnable examples, not a guarantee that every embedded lesson snippet has been compiled or tested.
+
+## v1.1: chapter-to-code learning path
+
+- Relevant chapters link to complete Java source files and checked expected output.
+- Each linked example includes the exact compile/run commands.
+- Browser smoke script at `tests/browser-smoke.sh` loads the homepage and a chapter in headless Chromium, checking rendered content.
+- Run `bash tests/browser-smoke.sh` locally if Chromium is installed; It is currently an optional manual check because the browser did not finish in this execution environment.
+- Static GitHub Pages deployment remains available via `.github/workflows/pages.yml`; publication requires a push to your own repository.
